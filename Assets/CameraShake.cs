@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using EZCameraShake;
 
 public class CameraShake : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class CameraShake : MonoBehaviour
     void OnEnable()
     {
         originalPos = camTransform.localPosition;
+
     }
 
     void Update()

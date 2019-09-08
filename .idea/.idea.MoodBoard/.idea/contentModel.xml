@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\rotmg\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\rotmg\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_MoodBoard.-1984702939.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rotmg\Documents\GitHub\MoodBoard" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CameraShake.cs" t="Include" />
+        <e p="DeciviseComponent.cs" t="Include" />
+        <e p="EZ Camera Shake" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Sample Scripts" t="Include">
+              <e p="ShakeByDistance.cs" t="Include" />
+              <e p="ShakeOnKeyPress.cs" t="Include" />
+              <e p="ShakeOnTrigger.cs" t="Include" />
+            </e>
+            <e p="ShakeDemo.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CameraShakeInstance.cs" t="Include" />
+            <e p="CameraShakePresets.cs" t="Include" />
+            <e p="CameraShaker.cs" t="Include" />
+            <e p="Utilities" t="Include">
+              <e p="CameraUtilities.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="FadeOutAndDeactivate.cs" t="Include" />
+        <e p="FallingObjectSpawner.cs" t="Include" />
+        <e p="Flicker.cs" t="Include" />
+        <e p="SlightCameraMovement.cs" t="Include" />
+        <e p="TriggerThunder.cs" t="Include" />
+      </e>
+      <e p="MoodBoard.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
