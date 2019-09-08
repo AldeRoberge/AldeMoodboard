@@ -8,6 +8,7 @@
       <e p="Assets" t="Include">
         <e p="CameraShake.cs" t="Include" />
         <e p="DeciviseComponent.cs" t="Include" />
+        <e p="EmitABunchOfFallingObjects.cs" t="Include" />
         <e p="EZ Camera Shake" t="Include">
           <e p="Demo" t="Include">
             <e p="Sample Scripts" t="Include">
@@ -29,6 +30,7 @@
         <e p="FadeOutAndDeactivate.cs" t="Include" />
         <e p="FallingObjectSpawner.cs" t="Include" />
         <e p="Flicker.cs" t="Include" />
+        <e p="Floating.cs" t="Include" />
         <e p="SlightCameraMovement.cs" t="Include" />
         <e p="TriggerThunder.cs" t="Include" />
       </e>
