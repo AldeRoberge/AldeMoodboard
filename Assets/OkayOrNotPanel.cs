@@ -18,7 +18,7 @@ public class OkayOrNotPanel : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -38,7 +38,7 @@ public class OkayOrNotPanel : MonoBehaviour
     void Start()
     {
 
-        panel = this.gameObject.transform.GetChild(0).gameObject;
+        panel = gameObject.transform.GetChild(0).gameObject;
         
         background = panel.GetComponentInChildren<Image>();
         text = panel.GetComponentInChildren<TMP_Text>();
@@ -46,7 +46,7 @@ public class OkayOrNotPanel : MonoBehaviour
 
     public void SetIsRight(bool isRight)
     {
-        this.panel.SetActive(true);
+        panel.SetActive(true);
         
         if (isRight)
         {
@@ -64,6 +64,6 @@ public class OkayOrNotPanel : MonoBehaviour
 
     public void Deactivate()
     {
-        this.panel.SetActive(false);
+        panel.SetActive(false);
     }
 }

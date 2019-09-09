@@ -33,6 +33,7 @@
         <e p="Floating.cs" t="Include" />
         <e p="GoodBadManager.cs" t="Include" />
         <e p="GoodOrBadDetector.cs" t="Include" />
+        <e p="MettalicThudCollisionSound.cs" t="Include" />
         <e p="OkayOrNotPanel.cs" t="Include" />
         <e p="PlaySoundEffect.cs" t="Include" />
         <e p="SlowlyGoUp.cs" t="Include" />

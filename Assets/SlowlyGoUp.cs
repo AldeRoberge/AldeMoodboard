@@ -7,8 +7,8 @@ public class SlowlyGoUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 0.0009f,
-            this.transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.00025f,
+            transform.position.z);
 
 
     }

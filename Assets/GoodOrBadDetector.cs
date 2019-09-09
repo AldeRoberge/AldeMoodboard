@@ -28,7 +28,7 @@ public class GoodOrBadDetector : MonoBehaviour
 
             if (c != null)
             {
-                PlaySoundEffect.Instance.PlayMetalicThud();
+               
                 onCollisionEnter.Invoke(c);
             }
             else

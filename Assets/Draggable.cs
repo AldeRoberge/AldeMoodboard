@@ -47,11 +47,21 @@ public class Draggable : MonoBehaviour
         targetPosition = transform.position;
     }
 
+    
+    
+    
     void Update()
     {
         gameObject.transform.position = new Vector3(gameObject.transform.position.x,
             gameObject.transform.position.y, initialPosition.z);
 
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlaySoundEffect.Instance.PlayMetalCollision();
+            
+        }
+        
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -15,7 +15,7 @@ public class FallingBoxesSpawner : MonoBehaviour
 
     void Start()
     {
-        choiceEngine = this.gameObject.AddComponent<StaticChoicesLoader>();
+        choiceEngine = gameObject.AddComponent<StaticChoicesLoader>();
     }
 
     public void Activate()
@@ -35,6 +35,8 @@ public class FallingBoxesSpawner : MonoBehaviour
         cube.GetComponent<ChoiceContainer>().parent = cube;
         
         cube.AddComponent<Rigidbody>();
+
+        cube.AddComponent<MettalicThudCollisionSound>();
         
         // Set texture
         cube.GetComponent<Renderer>().material.mainTexture = c.image;

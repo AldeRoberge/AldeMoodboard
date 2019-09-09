@@ -15,7 +15,7 @@ public class PlaySoundEffect : MonoBehaviour
     {
         if (_instance != null && _instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -27,6 +27,8 @@ public class PlaySoundEffect : MonoBehaviour
 
     private AudioSource audioSource;
 
+
+
     AudioClip droppingBar1;
     AudioClip droppingBar2;
     AudioClip droppingBar3;
@@ -34,33 +36,35 @@ public class PlaySoundEffect : MonoBehaviour
 
     public void Start()
     {
-        this.audioSource = this.gameObject.AddComponent<AudioSource>();
+        audioSource = gameObject.AddComponent<AudioSource>();
 
 
-        droppingBar1 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar1");
-        droppingBar2 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar2");
-        droppingBar3 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar3");
-        droppingBar4 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar4");
+        droppingBar1 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar5");
+        droppingBar2 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar6");
+        droppingBar3 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar7");
+        droppingBar4 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar8");
     }
 
 
-    public void PlayMetalicThud()
+    public void PlayMetalCollision()
     {
-        this.audioSource.volume = 0.25f;
+        audioSource.volume = 0.020f;
+
+        if (audioSource.isPlaying) return;
 
         switch (Random.Range(0, 3))
         {
             case 0:
-                this.audioSource.PlayOneShot(droppingBar1);
+                audioSource.PlayOneShot(droppingBar1);
                 break;
             case 1:
-                this.audioSource.PlayOneShot(droppingBar2);
+                audioSource.PlayOneShot(droppingBar2);
                 break;
             case 2:
-                this.audioSource.PlayOneShot(droppingBar3);
+                audioSource.PlayOneShot(droppingBar3);
                 break;
             case 3:
-                this.audioSource.PlayOneShot(droppingBar4);
+                audioSource.PlayOneShot(droppingBar4);
                 break;
         }
     }
