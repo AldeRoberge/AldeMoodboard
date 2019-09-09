@@ -12,9 +12,12 @@ public class GoodOrBadDetector : MonoBehaviour
 
     void Start()
     {
+        // turns off lights
         SetLightActiveTo(false);
     }
 
+    
+    // When a cube enters the pillar
     void OnCollisionEnter(Collision hit)
     {
         Debug.Log("Collision");
@@ -25,6 +28,7 @@ public class GoodOrBadDetector : MonoBehaviour
 
             if (c != null)
             {
+                PlaySoundEffect.Instance.PlayMetalicThud();
                 onCollisionEnter.Invoke(c);
             }
             else
@@ -40,6 +44,8 @@ public class GoodOrBadDetector : MonoBehaviour
         SetLightActiveTo(true);
     }
 
+    
+    // When a cube leaves the pillar
     void OnCollisionExit(Collision hit)
 
     {
@@ -55,6 +61,8 @@ public class GoodOrBadDetector : MonoBehaviour
         SetLightActiveTo(false);
     }
 
+    
+    // Activates the pillar light
     private void SetLightActiveTo(bool b)
     {
         if (light == null)

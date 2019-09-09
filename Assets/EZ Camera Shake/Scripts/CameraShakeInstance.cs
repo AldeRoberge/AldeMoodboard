@@ -47,10 +47,10 @@ namespace EZCameraShake
         /// <param name="roughness">Roughness of the shake. Lower values are smoother, higher values are more jarring.</param>
         public CameraShakeInstance(float magnitude, float roughness, float fadeInTime, float fadeOutTime)
         {
-            this.Magnitude = magnitude;
+            Magnitude = magnitude;
             fadeOutDuration = fadeOutTime;
             fadeInDuration = fadeInTime;
-            this.Roughness = roughness;
+            Roughness = roughness;
             if (fadeInTime > 0)
             {
                 sustain = true;
@@ -72,8 +72,8 @@ namespace EZCameraShake
         /// <param name="roughness">Roughness of the shake. Lower values are smoother, higher values are more jarring.</param>
         public CameraShakeInstance(float magnitude, float roughness)
         {
-            this.Magnitude = magnitude;
-            this.Roughness = roughness;
+            Magnitude = magnitude;
+            Roughness = roughness;
             sustain = true;
 
             tick = Random.Range(-100, 100);

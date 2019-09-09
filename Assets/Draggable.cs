@@ -49,8 +49,8 @@ public class Draggable : MonoBehaviour
 
     void Update()
     {
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,
-            this.gameObject.transform.position.y, initialPosition.z);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x,
+            gameObject.transform.position.y, initialPosition.z);
 
         if (Input.GetMouseButton(0))
         {
@@ -59,13 +59,13 @@ public class Draggable : MonoBehaviour
 
             foreach (RaycastHit raycastHit in Physics.RaycastAll(ray, Single.PositiveInfinity))
             {
-                if (raycastHit.collider == this.gameObject.GetComponent<Collider>())
+                if (raycastHit.collider == gameObject.GetComponent<Collider>())
                 {
                     //Debug.Log("HIT CUBE!");
 
                     targetPosition = new Vector3(raycastHit.point.x, raycastHit.point.y,
-                        this.gameObject.transform.position.z);
-                    this.gameObject.transform.position = targetPosition;
+                        gameObject.transform.position.z);
+                    gameObject.transform.position = targetPosition;
 
                     if (onClick != null)
                     {

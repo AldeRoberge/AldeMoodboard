@@ -24,7 +24,7 @@ public class ShakeByDistance : MonoBehaviour
 	void Update ()
     {
         //Get the distance from the player to this object.
-        float currentDistance = Vector3.Distance(Player.transform.position, this.transform.position);
+        float currentDistance = Vector3.Distance(Player.transform.position, transform.position);
 
         //Scale the magnitude of our saved shake, so that the scale is higher the closer we get to the object.
         _shakeInstance.ScaleMagnitude = 1 - Mathf.Clamp01(currentDistance / Distance);

@@ -34,7 +34,8 @@
         <e p="GoodBadManager.cs" t="Include" />
         <e p="GoodOrBadDetector.cs" t="Include" />
         <e p="OkayOrNotPanel.cs" t="Include" />
-        <e p="SlowlyGoDown.cs" t="Include" />
+        <e p="PlaySoundEffect.cs" t="Include" />
+        <e p="SlowlyGoUp.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />

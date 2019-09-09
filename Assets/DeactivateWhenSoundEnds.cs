@@ -17,6 +17,6 @@ public class DeactivateWhenSoundEnds : MonoBehaviour
     {
         if (audioSource.isPlaying) return;
         
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
