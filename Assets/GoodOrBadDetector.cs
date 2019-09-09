@@ -7,7 +7,7 @@ public class GoodOrBadDetector : MonoBehaviour
 {
     public Light light;
 
-    public Action onCollisionEnter;
+    public Action<ChoiceContainer> onCollisionEnter;
     public Action onCollisionExit;
 
     void Start()
@@ -21,7 +21,16 @@ public class GoodOrBadDetector : MonoBehaviour
 
         if (onCollisionEnter != null)
         {
-            onCollisionEnter.Invoke();
+            ChoiceContainer c = hit.gameObject.GetComponent<ChoiceContainer>();
+
+            if (c != null)
+            {
+                onCollisionEnter.Invoke(c);
+            }
+            else
+            {
+                Debug.LogError("FATAL ERROR : No choice container in collision.");
+            }
         }
         else
         {

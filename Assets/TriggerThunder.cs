@@ -12,7 +12,7 @@ public class TriggerThunder : MonoBehaviour
 
     public void Activate()
     {
-        CameraShaker.Instance.ShakeOnce(0.5f, 0.5f, .1f, 2f);
+        CameraShaker.Instance.ShakeOnce(2f, 0.5f, .1f, 3f);
 
         if (thunder == null)
         {

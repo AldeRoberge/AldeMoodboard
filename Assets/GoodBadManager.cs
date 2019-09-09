@@ -16,29 +16,34 @@ public class GoodBadManager : MonoBehaviour
     public TMP_Text infoText;
 
     public GameObject Rain;
-    
+
     bool badIsCollided;
     bool goodIsCollided;
+    
+    private ChoiceContainer selectedLeftChoice;
+    private ChoiceContainer selectedRightChoice;
 
     // Start is called before the first frame update
     void Start()
     {
         FallingObjectSpawner = gameObject.AddComponent<FallingBoxesSpawner>();
         FallingObjectSpawner.infoText = infoText;
-        
+
         if (goodCollider == null)
         {
             Debug.LogError("FATAL: Good detector is null.");
         }
         else
         {
-            goodCollider.onCollisionEnter = () =>
+            goodCollider.onCollisionEnter = (e) =>
             {
+                selectedLeftChoice = e;
                 goodIsCollided = true;
                 UpdateCollisions();
             };
             goodCollider.onCollisionExit = () =>
             {
+                selectedLeftChoice = null;
                 goodIsCollided = false;
                 UpdateCollisions();
             };
@@ -50,13 +55,15 @@ public class GoodBadManager : MonoBehaviour
         }
         else
         {
-            badCollider.onCollisionEnter = () =>
+            badCollider.onCollisionEnter = (e) =>
             {
+                selectedRightChoice = e;
                 badIsCollided = true;
                 UpdateCollisions();
             };
             badCollider.onCollisionExit = () =>
             {
+                selectedRightChoice = null;
                 badIsCollided = false;
                 UpdateCollisions();
             };
@@ -73,6 +80,7 @@ public class GoodBadManager : MonoBehaviour
             {
                 if (triggerThunder != null)
                 {
+                    ShowAnswer();
                     SpawnNewBoxes();
                 }
                 else
@@ -89,11 +97,31 @@ public class GoodBadManager : MonoBehaviour
         }
     }
 
+    private void ShowAnswer()
+    {
+        
+        
+        selectedLeftChoice.parent.SetActive(false);
+        selectedRightChoice.parent.SetActive(false);
+        
+        
+        if (selectedLeftChoice.choice.isRight)
+        {
+            OkayOrNotPanel.Instance.SetIsRight(true);
+        }
+        else
+        {
+            OkayOrNotPanel.Instance.SetIsRight(false);
+        }
+    }
+
     public void SpawnNewBoxes()
     {
-       triggerThunder.Activate();
-       FallingObjectSpawner.Activate();
-       
-       Rain.SetActive(true);
+        //Rain.SetActive(true);
+        //triggerThunder.Activate();
+        
+        FallingObjectSpawner.Activate();
+
+        
     }
 }

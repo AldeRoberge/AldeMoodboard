@@ -31,11 +31,13 @@ public class FallingBoxesSpawner : MonoBehaviour
         // Instantiate cube
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.AddComponent<ChoiceContainer>().choice = c;
+        cube.GetComponent<ChoiceContainer>().parent = cube;
+        
         cube.AddComponent<Rigidbody>();
-
+        
         // Set texture
         cube.GetComponent<Renderer>().material.mainTexture = c.image;
-
 
         // Make it draggable
         Draggable d = cube.AddComponent<Draggable>();
@@ -61,6 +63,14 @@ public class FallingBoxesSpawner : MonoBehaviour
     }
 }
 
+public class ChoiceContainer : MonoBehaviour
+{
+
+    public GameObject parent;
+    
+    public Choice choice;
+}
+
 
 class StaticChoicesLoader : MonoBehaviour
 {
@@ -84,80 +94,80 @@ class StaticChoicesLoader : MonoBehaviour
         choices = new List<ChoicePair>
         {
             new ChoicePair(
-                new Choice("Bonobo - Migration", "", "bonobo"),
-                new Choice("Justin Bieber - My World 2.0", "", "bieber")),
+                new Choice("Bonobo - Migration", "", "bonobo", true),
+                new Choice("Justin Bieber - My World 2.0", "", "bieber", false)),
 
             new ChoicePair(
-                new Choice("C#", "", "csharp"),
-                new Choice("ActionScript", "", "actionscript")),
+                new Choice("C#", "", "csharp", true),
+                new Choice("ActionScript", "", "actionscript", false)),
 
             new ChoicePair(
-                new Choice("Justin Trudeau", "", "trudeau"),
-                new Choice("Andrew Scheer", "", "andrew-scheer")),
-
-
-            new ChoicePair(
-                new Choice("Foreurs", "", "vd_foreurs"),
-                new Choice("Huskies", "", "rn_huskies")),
+                new Choice("Justin Trudeau", "", "trudeau", true),
+                new Choice("Andrew Scheer", "", "andrew-scheer", false)),
 
 
             new ChoicePair(
-                new Choice("Microsoft", "", "microsoft"),
-                new Choice("Apple", "", "apple")),
+                new Choice("Foreurs", "", "vd_foreurs", true),
+                new Choice("Huskies", "", "rn_huskies", false)),
 
 
             new ChoicePair(
-                new Choice("Super Mario Bros 3", "", "microsoft"),
-                new Choice("Fornite", "", "fortnite")),
+                new Choice("Microsoft", "", "microsoft", true),
+                new Choice("Apple", "", "apple", false)),
 
 
             new ChoicePair(
-                new Choice("Sony", "", "sony"),
-                new Choice("Nikon", "", "nikon")),
+                new Choice("Super Mario Bros 3", "", "microsoft", true),
+                new Choice("Fornite", "", "fortnite", false)),
 
 
             new ChoicePair(
-                new Choice("Ableton Live", "", "ableton"),
-                new Choice("FL Studio", "", "fl_studio")),
-
-            new ChoicePair(
-                new Choice("Val-d'Or'", "", "vd"),
-                new Choice("Rouyn-Noranda", "", "rn")),
+                new Choice("Sony", "", "sony", true),
+                new Choice("Nikon", "", "nikon", false)),
 
 
             new ChoicePair(
-                new Choice("Burger King", "", "burger_king"),
-                new Choice("Mc Donald", "", "mc_donald")),
+                new Choice("Ableton Live", "", "ableton", true),
+                new Choice("FL Studio", "", "fl_studio", false)),
 
             new ChoicePair(
-                new Choice("Samsung", "", "samsung"),
-                new Choice("iPhone", "", "iphone")),
-
-
-            new ChoicePair(
-                new Choice("Open Source", "", "open_source"),
-                new Choice("Closed Source", "", "closed_source")),
-
-            new ChoicePair(
-                new Choice("Lego", "", "lego"),
-                new Choice("Mega Blocks", "", "mega_blocks")),
-
-            new ChoicePair(
-                new Choice("Rick and Morty", "", "rick_and_morty"),
-                new Choice("Family Guy", "", "family_guy")),
+                new Choice("Val-d'Or'", "", "vd", true),
+                new Choice("Rouyn-Noranda", "", "rn", false)),
 
 
             new ChoicePair(
-                new Choice("Chien", "", "dog"),
-                new Choice("Chat", "", "cat")),
+                new Choice("Burger King", "", "burger_king", true),
+                new Choice("Mc Donald", "", "mc_donald", false)),
 
             new ChoicePair(
-                new Choice("Reddit", "", "reddit"),
-                new Choice("Facebook", "", "facebook")),
+                new Choice("Samsung", "", "samsung", true),
+                new Choice("iPhone", "", "iphone", false)),
+
 
             new ChoicePair(
-                new Choice("Jurassic Park", "", "jurassic_park"),
-                new Choice("Jurassic Park 2", "", "jurassic_park2")),
+                new Choice("Open Source", "", "open_source", true),
+                new Choice("Closed Source", "", "closed_source", false)),
+
+            new ChoicePair(
+                new Choice("Lego", "", "lego", true),
+                new Choice("Mega Blocks", "", "mega_blocks", false)),
+
+            new ChoicePair(
+                new Choice("Rick and Morty", "", "rick_and_morty", true),
+                new Choice("Family Guy", "", "family_guy", false)),
+
+
+            new ChoicePair(
+                new Choice("Chien", "", "dog", true),
+                new Choice("Chat", "", "cat", false)),
+
+            new ChoicePair(
+                new Choice("Reddit", "", "reddit", true),
+                new Choice("Facebook", "", "facebook", false)),
+
+            new ChoicePair(
+                new Choice("Jurassic Park", "", "jurassic_park", true),
+                new Choice("Jurassic Park 2", "", "jurassic_park2", false)),
         };
 
 
@@ -187,12 +197,14 @@ public class Choice
     public string description;
     public string imagePath;
     public Texture2D image;
+    public bool isRight;
 
-    public Choice(string title, string description, string imagePath)
+    public Choice(string title, string description, string imagePath, bool isRight)
     {
         this.title = title;
         this.description = description;
         this.imagePath = imagePath;
+        this.isRight = isRight;
 
         image = LoadImage(imagePath);
     }
