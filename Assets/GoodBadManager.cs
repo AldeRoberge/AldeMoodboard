@@ -17,7 +17,7 @@ public class GoodBadManager : MonoBehaviour
 
     public TMP_Text badLabel;
     public TMP_Text goodLabel;
-    
+
     public GameObject Rain;
 
     bool badIsCollided;
@@ -25,14 +25,13 @@ public class GoodBadManager : MonoBehaviour
 
     private ChoiceContainer selectedLeftChoice;
     private ChoiceContainer selectedRightChoice;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
         Debug.Log("Loading FallingObjectSpawner");
-        
+
         FallingObjectSpawner = gameObject.AddComponent<FallingBoxesSpawner>();
         FallingObjectSpawner.infoText = infoText;
         FallingObjectSpawner.badLabel = badLabel;
@@ -122,9 +121,18 @@ public class GoodBadManager : MonoBehaviour
         if (selectedLeftChoice.choice.isRight)
         {
             OkayOrNotPanel.Instance.SetIsRight(true);
+            BirdSpawner.Instance.SpawnBirds(5);
+            
+            PlaySoundEffect.Instance.Cheers();
+
+            Rain.SetActive(false);
+            triggerThunder.Deactivate();
         }
         else
         {
+            Rain.SetActive(true);
+            triggerThunder.Activate();
+
             OkayOrNotPanel.Instance.SetIsRight(false);
         }
 
@@ -135,19 +143,16 @@ public class GoodBadManager : MonoBehaviour
     {
         selectedRightChoice = null;
         selectedLeftChoice = null;
-        
+
         goodCollider.SetLightActiveTo(false);
         badCollider.SetLightActiveTo(false);
-        
+
         badIsCollided = false;
         goodIsCollided = false;
     }
 
     public void SpawnNewBoxes()
     {
-        //Rain.SetActive(true);
-        //triggerThunder.Activate();
-
         FallingObjectSpawner.Activate();
     }
 }

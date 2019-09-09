@@ -21,9 +21,20 @@ public class TriggerThunder : MonoBehaviour
         else
         {
             thunder.SetActive(true);
-            
-            Flicker f = thunder.GetComponent<Flicker>();
-            f.triggerFlicker = true;
+            thunder.GetComponent<Flicker>().triggerFlicker = true;
+        }
+    }
+
+    public void Deactivate()
+    {
+        if (thunder == null)
+        {
+            Debug.Log("Fatal : Could not find Thunder.");
+        }
+        else
+        {
+            thunder.SetActive(false);
+            thunder.GetComponent<Flicker>().triggerFlicker = false;
         }
     }
 }

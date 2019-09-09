@@ -27,7 +27,7 @@ public class PlaySoundEffect : MonoBehaviour
 
     private AudioSource audioSource;
 
-
+    AudioClip cheers;
 
     AudioClip droppingBar1;
     AudioClip droppingBar2;
@@ -39,6 +39,8 @@ public class PlaySoundEffect : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
 
 
+        cheers = Resources.Load<AudioClip>("Sounds/WIN");
+        
         droppingBar1 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar5");
         droppingBar2 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar6");
         droppingBar3 = Resources.Load<AudioClip>("Sounds/MetalicThud/droppingBar7");
@@ -67,5 +69,11 @@ public class PlaySoundEffect : MonoBehaviour
                 audioSource.PlayOneShot(droppingBar4);
                 break;
         }
+    }
+
+    public void Cheers()
+    {
+        audioSource.volume = 0.05f;
+        audioSource.PlayOneShot(cheers);
     }
 }

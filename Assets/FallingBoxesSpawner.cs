@@ -152,7 +152,7 @@ class StaticChoicesLoader : MonoBehaviour
 
 
             new ChoicePair(
-                new Choice("Super Mario Bros 3", "", "microsoft", true),
+                new Choice("Super Mario Bros 3", "", "super_mario_bros", true),
                 new Choice("Fornite", "", "fortnite", false)),
 
 
