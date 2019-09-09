@@ -48,7 +48,7 @@ public class PlaySoundEffect : MonoBehaviour
 
     public void PlayMetalCollision()
     {
-        audioSource.volume = 0.020f;
+        audioSource.volume = 0.05f;
 
         if (audioSource.isPlaying) return;
 

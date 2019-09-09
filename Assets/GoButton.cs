@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CountdownToGameBegin : MonoBehaviour
+public class GoButton : MonoBehaviour
 {
 
     public GoodBadManager GoodBadManager;
@@ -11,9 +11,6 @@ public class CountdownToGameBegin : MonoBehaviour
     
     public void Run()
     {
-        
-        //Spawns a bird
-        BirdSpawner.Instance.SpawnBirds(8);
         
         //Hides the button
         this.gameObject.SetActive(false);

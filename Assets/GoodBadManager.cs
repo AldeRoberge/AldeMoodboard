@@ -15,6 +15,9 @@ public class GoodBadManager : MonoBehaviour
     private FallingBoxesSpawner FallingObjectSpawner;
     public TMP_Text infoText;
 
+    public TMP_Text badLabel;
+    public TMP_Text goodLabel;
+    
     public GameObject Rain;
 
     bool badIsCollided;
@@ -22,12 +25,18 @@ public class GoodBadManager : MonoBehaviour
 
     private ChoiceContainer selectedLeftChoice;
     private ChoiceContainer selectedRightChoice;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        Debug.Log("Loading FallingObjectSpawner");
+        
         FallingObjectSpawner = gameObject.AddComponent<FallingBoxesSpawner>();
         FallingObjectSpawner.infoText = infoText;
+        FallingObjectSpawner.badLabel = badLabel;
+        FallingObjectSpawner.goodLabel = goodLabel;
 
         if (goodCollider == null)
         {

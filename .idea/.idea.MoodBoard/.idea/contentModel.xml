@@ -9,7 +9,6 @@
         <e p="Bird.cs" t="Include" />
         <e p="BirdSpawner.cs" t="Include" />
         <e p="Countdown.cs" t="Include" />
-        <e p="CountdownToGameBegin.cs" t="Include" />
         <e p="DeactivateWhenSoundEnds.cs" t="Include" />
         <e p="Draggable.cs" t="Include" />
         <e p="EZ Camera Shake" t="Include">
@@ -34,6 +33,8 @@
         <e p="FallingBoxesSpawner.cs" t="Include" />
         <e p="Flicker.cs" t="Include" />
         <e p="Floating.cs" t="Include" />
+        <e p="FollowText.cs" t="Include" />
+        <e p="GoButton.cs" t="Include" />
         <e p="GoodBadManager.cs" t="Include" />
         <e p="GoodOrBadDetector.cs" t="Include" />
         <e p="MettalicThudCollisionSound.cs" t="Include" />

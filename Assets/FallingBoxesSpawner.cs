@@ -3,12 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 [RequireComponent(typeof(StaticChoicesLoader))]
 public class FallingBoxesSpawner : MonoBehaviour
 {
+    
+    // Set by Good/bad manager
     public TMP_Text infoText;
-
+    
+    public TMP_Text goodLabel;
+    public TMP_Text badLabel;
+    
     private StaticChoicesLoader choiceEngine;
 
     public readonly Vector3 spawnPoint = new Vector3(0, 3f, -4);
@@ -22,22 +28,40 @@ public class FallingBoxesSpawner : MonoBehaviour
     {
         ChoicePair c = choiceEngine.GetNextChoicePair();
 
-        SpawnACube(c.goodChoice);
-        SpawnACube(c.badChoice);
+        SpawnACube(c.goodChoice, goodLabel);
+        SpawnACube(c.badChoice, badLabel);
     }
 
-    private void SpawnACube(Choice c)
+    private void SpawnACube(Choice c, TMP_Text label)
     {
         // Instantiate cube
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        
+         
+        // Adds a label and makes it follow it
+        if (label != null)
+        {
+            
+            Debug.Log("GOOD: Cube is valid");
+            FollowText followText = cube.AddComponent<FollowText>();
+            followText.SetLabel(label);
+            followText.SetText(c.title);
+            
+        }
+        else
+        {
+            Debug.Log("FATAL: No good/bad label prefab!");
+        }
+        
+        
         cube.AddComponent<ChoiceContainer>().choice = c;
         cube.GetComponent<ChoiceContainer>().parent = cube;
-        
+
         cube.AddComponent<Rigidbody>();
 
         cube.AddComponent<MettalicThudCollisionSound>();
-        
+
         // Set texture
         cube.GetComponent<Renderer>().material.mainTexture = c.image;
 
@@ -49,7 +73,7 @@ public class FallingBoxesSpawner : MonoBehaviour
         {
             if (infoText != null)
             {
-                infoText.text = c.title;
+                //infoText.text = c.title;
             }
         };
 
@@ -59,17 +83,26 @@ public class FallingBoxesSpawner : MonoBehaviour
         cube.transform.rotation = q;
 
         // Set to position
-        cube.transform.position = spawnPoint;
+        cube.transform.position = GetRandomSpawnPoint();
 
+        // Scales the cube to be a little bit smaller
         cube.transform.localScale = new Vector3(0.90f, 0.90f, 0.90f);
+        
+       
+    }
+
+    
+    // Make sure bad/good are indifferentiable
+    private Vector3 GetRandomSpawnPoint()
+    {
+        return new Vector3(spawnPoint.x + UnityEngine.Random.Range(-2f, 2f), spawnPoint.y, spawnPoint.z);
     }
 }
 
 public class ChoiceContainer : MonoBehaviour
 {
-
     public GameObject parent;
-    
+
     public Choice choice;
 }
 
