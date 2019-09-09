@@ -11,6 +11,10 @@ public class CountdownToGameBegin : MonoBehaviour
     
     public void Run()
     {
+        
+        //Spawns a bird
+        BirdSpawner.Instance.SpawnBirds(8);
+        
         //Hides the button
         this.gameObject.SetActive(false);
         

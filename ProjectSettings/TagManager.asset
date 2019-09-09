@@ -16,7 +16,7 @@ TagManager:
   - 
   - PostProcessing
   - 
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -41,4 +41,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 1866941099
     locked: 0

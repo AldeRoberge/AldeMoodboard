@@ -19,7 +19,7 @@ public class GoodBadManager : MonoBehaviour
 
     bool badIsCollided;
     bool goodIsCollided;
-    
+
     private ChoiceContainer selectedLeftChoice;
     private ChoiceContainer selectedRightChoice;
 
@@ -76,35 +76,40 @@ public class GoodBadManager : MonoBehaviour
         {
             Debug.Log("Beginning countdown...");
 
-            Countdown.Instance.BeginCountdown(() =>
+
+            if (!Countdown.Instance.IsAlreadyCounting)
             {
-                if (triggerThunder != null)
+                Countdown.Instance.BeginCountdown(() =>
                 {
-                    ShowAnswer();
-                    SpawnNewBoxes();
-                }
-                else
-                {
-                    Debug.LogError("FATAL: TriggerThunder is null.");
-                }
-            });
+                    if (triggerThunder != null)
+                    {
+                        ShowAnswer();
+                        SpawnNewBoxes();
+                    }
+                    else
+                    {
+                        Debug.LogError("FATAL: TriggerThunder is null.");
+                    }
+                });
+            }
         }
         else
         {
-            Debug.Log("Stopping countdown...");
+            if (Countdown.Instance.IsAlreadyCounting)
+            {
+                Debug.Log("Stopping countdown...");
 
-            Countdown.Instance.StopCountdown();
+                Countdown.Instance.StopCountdown();
+            }
         }
     }
 
     private void ShowAnswer()
     {
-        
-        
         selectedLeftChoice.parent.SetActive(false);
         selectedRightChoice.parent.SetActive(false);
-        
-        
+
+
         if (selectedLeftChoice.choice.isRight)
         {
             OkayOrNotPanel.Instance.SetIsRight(true);
@@ -113,15 +118,27 @@ public class GoodBadManager : MonoBehaviour
         {
             OkayOrNotPanel.Instance.SetIsRight(false);
         }
+
+        Reset();
+    }
+
+    private void Reset()
+    {
+        selectedRightChoice = null;
+        selectedLeftChoice = null;
+        
+        goodCollider.SetLightActiveTo(false);
+        badCollider.SetLightActiveTo(false);
+        
+        badIsCollided = false;
+        goodIsCollided = false;
     }
 
     public void SpawnNewBoxes()
     {
         //Rain.SetActive(true);
         //triggerThunder.Activate();
-        
-        FallingObjectSpawner.Activate();
 
-        
+        FallingObjectSpawner.Activate();
     }
 }

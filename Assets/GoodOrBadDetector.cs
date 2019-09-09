@@ -62,7 +62,7 @@ public class GoodOrBadDetector : MonoBehaviour
 
     
     // Activates the pillar light
-    private void SetLightActiveTo(bool b)
+    public void SetLightActiveTo(bool b)
     {
         if (light == null)
         {

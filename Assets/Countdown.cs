@@ -13,6 +13,8 @@ public class Countdown : MonoBehaviour
         get { return _instance; }
     }
 
+    public bool IsAlreadyCounting { get; set; }
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -41,6 +43,9 @@ public class Countdown : MonoBehaviour
 
     public void BeginCountdown(Action onCountdownEnd)
     {
+
+        IsAlreadyCounting = true;
+        
         this.onCountdownEnd = onCountdownEnd;
 
         currentSecond = 4;
@@ -51,6 +56,8 @@ public class Countdown : MonoBehaviour
 
     public void StopCountdown()
     {
+        IsAlreadyCounting = false;
+        
         stopCountdown = true;
         text.text = "";
     }
@@ -77,7 +84,7 @@ public class Countdown : MonoBehaviour
                     break;
                 default:
                     onCountdownEnd.Invoke();
-                    text.text = "";
+                    StopCountdown();
                     break;
             }
 
