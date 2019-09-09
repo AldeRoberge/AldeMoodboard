@@ -92,7 +92,8 @@ public class GoodBadManager : MonoBehaviour
                     if (triggerThunder != null)
                     {
                         ShowAnswer();
-                        SpawnNewBoxes();
+
+                        Invoke(nameof(SpawnNewBoxes), 1.0f);
                     }
                     else
                     {
@@ -122,7 +123,7 @@ public class GoodBadManager : MonoBehaviour
         {
             OkayOrNotPanel.Instance.SetIsRight(true);
             BirdSpawner.Instance.SpawnBirds(5);
-            
+
             PlaySoundEffect.Instance.Cheers();
 
             Rain.SetActive(false);

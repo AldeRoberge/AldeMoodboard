@@ -59,7 +59,7 @@ public class OkayOrNotPanel : MonoBehaviour
             background.color = badPanelColor;
         }
 
-        Invoke(nameof(Deactivate), 2.0f);
+        Invoke(nameof(Deactivate), 4.0f);
     }
 
     public void Deactivate()
