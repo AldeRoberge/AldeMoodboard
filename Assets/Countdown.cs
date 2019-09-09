@@ -26,9 +26,7 @@ public class Countdown : MonoBehaviour
     }
 
     // BEGIN CLASS
-
-    private static string[] CountdownStrings = {"3...", "2...", "1..."};
-
+    
     private TMP_Text text;
 
     void Start()
@@ -48,7 +46,7 @@ public class Countdown : MonoBehaviour
         currentSecond = 4;
         stopCountdown = false;
 
-        StartCoroutine(nameof(DoStuff));
+        StartCoroutine(nameof(BeginActualCountdown));
     }
 
     public void StopCountdown()
@@ -57,7 +55,7 @@ public class Countdown : MonoBehaviour
         text.text = "";
     }
 
-    IEnumerator DoStuff()
+    private IEnumerator BeginActualCountdown() //Note : Coroutines must be public
     {
         while (true)
         {

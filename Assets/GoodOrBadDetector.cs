@@ -15,12 +15,11 @@ public class GoodOrBadDetector : MonoBehaviour
         // turns off lights
         SetLightActiveTo(false);
     }
-
+    
     
     // When a cube enters the pillar
     void OnCollisionEnter(Collision hit)
     {
-        Debug.Log("Collision");
 
         if (onCollisionEnter != null)
         {
@@ -71,14 +70,7 @@ public class GoodOrBadDetector : MonoBehaviour
         }
         else
         {
-            if (b)
-            {
-                light.intensity = 2f;
-            }
-            else
-            {
-                light.intensity = 0f;
-            }
+            light.intensity = b ? 2f : 0f;
         }
     }
 }
