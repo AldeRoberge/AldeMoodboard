@@ -21,7 +21,7 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
         ChoicePair c = choiceEngine.GetNextChoicePair();
 
         SpawnACube(c.goodChoice);
-        //SpawnACube(c.badChoice);
+        SpawnACube(c.badChoice);
     }
 
     private void SpawnACube(Choice c)
@@ -45,6 +45,8 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
 
         // Set to position
         cube.transform.position = spawnPoint;
+        
+        cube.transform.localScale = new Vector3(0.90f, 0.90f, 0.90f);
     }
 }
 

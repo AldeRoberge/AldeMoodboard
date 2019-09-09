@@ -38,14 +38,19 @@ public class Draggable : MonoBehaviour
 {
     public GameObject cube;
     Vector3 targetPosition;
+    Vector3 initialPosition;
 
     void Start()
     {
+        initialPosition = transform.position;
         targetPosition = transform.position;
     }
 
     void Update()
     {
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x,
+            this.gameObject.transform.position.y, initialPosition.z);
+
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
