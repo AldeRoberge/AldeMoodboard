@@ -36,12 +36,16 @@ public class Countdown : MonoBehaviour
         text = gameObject.GetComponent<TMP_Text>();
     }
 
-    private bool stopCountdown = false;
-    private int currentSecond = 3;
+    private bool stopCountdown;
+    private int currentSecond;
 
-    public void BeginCountdown()
+    private Action onCountdownEnd;
+
+    public void BeginCountdown(Action onCountdownEnd)
     {
-        currentSecond = 3;
+        this.onCountdownEnd = onCountdownEnd;
+
+        currentSecond = 4;
         stopCountdown = false;
 
         StartCoroutine(nameof(DoStuff));
@@ -50,36 +54,36 @@ public class Countdown : MonoBehaviour
     public void StopCountdown()
     {
         stopCountdown = true;
-
         text.text = "";
     }
-
 
     IEnumerator DoStuff()
     {
         while (true)
         {
-            currentSecond--;
+            if (stopCountdown) yield break; // STOP
 
             switch (currentSecond)
             {
-                case 3:
+                case 4:
                     text.text = "3...";
                     break;
-                case 2:
+                case 3:
                     text.text = "2...";
                     break;
-                case 1:
+                case 2:
                     text.text = "1...";
                     break;
-                default:
+                case 1:
                     text.text = "...";
+                    break;
+                default:
+                    onCountdownEnd.Invoke();
+                    text.text = "";
                     break;
             }
 
-
-            if (stopCountdown) yield break; // STOP
-
+            currentSecond--;
 
             yield return new WaitForSeconds(1f); // CONTINUE
         }

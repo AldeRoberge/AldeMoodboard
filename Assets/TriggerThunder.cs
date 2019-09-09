@@ -10,14 +10,10 @@ public class TriggerThunder : MonoBehaviour
 {
     public GameObject thunder;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Activate()
     {
         CameraShaker.Instance.ShakeOnce(0.5f, 0.5f, .1f, 2f);
 
-
-       
-        
         if (thunder == null)
         {
             Debug.Log("Fatal : Could not find Thunder.");
@@ -29,10 +25,5 @@ public class TriggerThunder : MonoBehaviour
             Flicker f = thunder.GetComponent<Flicker>();
             f.triggerFlicker = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

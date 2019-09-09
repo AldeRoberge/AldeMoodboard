@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(StaticChoicesLoader))]
-public class EmitABunchOfFallingObjects : MonoBehaviour
+public class FallingBoxesSpawner : MonoBehaviour
 {
     public TMP_Text infoText;
 
@@ -16,11 +16,9 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
     void Start()
     {
         choiceEngine = this.gameObject.AddComponent<StaticChoicesLoader>();
-
-        SpawnChoices();
     }
 
-    void SpawnChoices()
+    public void Activate()
     {
         ChoicePair c = choiceEngine.GetNextChoicePair();
 
@@ -41,7 +39,7 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
 
         // Make it draggable
         Draggable d = cube.AddComponent<Draggable>();
-        
+
         // Set title info
         d.onClick = () =>
         {

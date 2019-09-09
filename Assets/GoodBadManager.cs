@@ -1,18 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
+
+//TODO I'M very well aware this is utter spag code. This comment won't fix anything, but eh.
 public class GoodBadManager : MonoBehaviour
 {
+    public TriggerThunder triggerThunder; //Found on MainCamera
+
     public GoodOrBadDetector goodCollider;
     public GoodOrBadDetector badCollider;
 
+    private FallingBoxesSpawner FallingObjectSpawner;
+    public TMP_Text infoText;
+
+    public GameObject Rain;
+    
     bool badIsCollided;
     bool goodIsCollided;
 
     // Start is called before the first frame update
     void Start()
     {
+        FallingObjectSpawner = gameObject.AddComponent<FallingBoxesSpawner>();
+        FallingObjectSpawner.infoText = infoText;
+        
         if (goodCollider == null)
         {
             Debug.LogError("FATAL: Good detector is null.");
@@ -54,13 +67,33 @@ public class GoodBadManager : MonoBehaviour
     {
         if (goodIsCollided && badIsCollided)
         {
-            Countdown.Instance.BeginCountdown();
+            Debug.Log("Beginning countdown...");
+
+            Countdown.Instance.BeginCountdown(() =>
+            {
+                if (triggerThunder != null)
+                {
+                    SpawnNewBoxes();
+                }
+                else
+                {
+                    Debug.LogError("FATAL: TriggerThunder is null.");
+                }
+            });
         }
         else
         {
+            Debug.Log("Stopping countdown...");
+
             Countdown.Instance.StopCountdown();
         }
     }
 
-    
+    public void SpawnNewBoxes()
+    {
+       triggerThunder.Activate();
+       FallingObjectSpawner.Activate();
+       
+       Rain.SetActive(true);
+    }
 }
