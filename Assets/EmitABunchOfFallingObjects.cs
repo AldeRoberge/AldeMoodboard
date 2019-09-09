@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(StaticChoicesLoader))]
 public class EmitABunchOfFallingObjects : MonoBehaviour
 {
+    public TMP_Text infoText;
+
     private StaticChoicesLoader choiceEngine;
 
     public readonly Vector3 spawnPoint = new Vector3(0, 3f, -4);
@@ -36,7 +40,16 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
 
 
         // Make it draggable
-        cube.AddComponent<Draggable>();
+        Draggable d = cube.AddComponent<Draggable>();
+        
+        // Set title info
+        d.onClick = () =>
+        {
+            if (infoText != null)
+            {
+                infoText.text = c.title;
+            }
+        };
 
         // Rotate it
         Quaternion q = cube.transform.rotation; //shows the image properly
@@ -45,7 +58,7 @@ public class EmitABunchOfFallingObjects : MonoBehaviour
 
         // Set to position
         cube.transform.position = spawnPoint;
-        
+
         cube.transform.localScale = new Vector3(0.90f, 0.90f, 0.90f);
     }
 }
@@ -182,7 +195,7 @@ public class Choice
         this.title = title;
         this.description = description;
         this.imagePath = imagePath;
-        
+
         image = LoadImage(imagePath);
     }
 

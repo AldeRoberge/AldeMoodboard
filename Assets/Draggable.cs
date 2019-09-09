@@ -36,7 +36,8 @@ using Vector2 = UnityEngine.Vector2;
 
 public class Draggable : MonoBehaviour
 {
-    public GameObject cube;
+    public Action onClick;
+    
     Vector3 targetPosition;
     Vector3 initialPosition;
 
@@ -60,11 +61,19 @@ public class Draggable : MonoBehaviour
             {
                 if (raycastHit.collider == this.gameObject.GetComponent<Collider>())
                 {
-                    Debug.Log("HIT CUBE!");
+                    //Debug.Log("HIT CUBE!");
 
                     targetPosition = new Vector3(raycastHit.point.x, raycastHit.point.y,
                         this.gameObject.transform.position.z);
                     this.gameObject.transform.position = targetPosition;
+
+                    if (onClick != null)
+                    {
+                        onClick.Invoke();
+                        
+                    }
+                    
+                    
                 }
             }
         }
