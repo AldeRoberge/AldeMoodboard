@@ -27,7 +27,7 @@ public class GoodOrBadDetector : MonoBehaviour
 
             if (c != null)
             {
-               
+
                 onCollisionEnter.Invoke(c);
             }
             else

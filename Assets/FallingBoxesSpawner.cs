@@ -8,13 +8,12 @@ using Random = System.Random;
 [RequireComponent(typeof(StaticChoicesLoader))]
 public class FallingBoxesSpawner : MonoBehaviour
 {
-    
     // Set by Good/bad manager
     public TMP_Text infoText;
-    
+
     public TMP_Text goodLabel;
     public TMP_Text badLabel;
-    
+
     private StaticChoicesLoader choiceEngine;
 
     public readonly Vector3 spawnPoint = new Vector3(0, 3f, -4);
@@ -37,24 +36,22 @@ public class FallingBoxesSpawner : MonoBehaviour
         // Instantiate cube
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        
-         
+
+
         // Adds a label and makes it follow it
         if (label != null)
         {
-            
             Debug.Log("GOOD: Cube is valid");
             FollowText followText = cube.AddComponent<FollowText>();
             followText.SetLabel(label);
             followText.SetText(c.title);
-            
         }
         else
         {
             Debug.Log("FATAL: No good/bad label prefab!");
         }
-        
-        
+
+
         cube.AddComponent<ChoiceContainer>().choice = c;
         cube.GetComponent<ChoiceContainer>().parent = cube;
 
@@ -87,11 +84,9 @@ public class FallingBoxesSpawner : MonoBehaviour
 
         // Scales the cube to be a little bit smaller
         cube.transform.localScale = new Vector3(0.90f, 0.90f, 0.90f);
-        
-       
     }
 
-    
+
     // Make sure bad/good are indifferentiable
     private Vector3 GetRandomSpawnPoint()
     {
@@ -133,68 +128,64 @@ class StaticChoicesLoader : MonoBehaviour
                 new Choice("Justin Bieber - My World 2.0", "", "bieber", false)),
 
             new ChoicePair(
-                new Choice("C#", "", "csharp", true),
-                new Choice("ActionScript", "", "actionscript", false)),
+                new Choice("Chien", "", "dog", true),
+                new Choice("Chat", "", "cat", false)),
 
             new ChoicePair(
-                new Choice("Justin Trudeau", "", "trudeau", true),
-                new Choice("Andrew Scheer", "", "andrew-scheer", false)),
-
-
+                new Choice("Rick and Morty", "", "rick_and_morty", true),
+                new Choice("Family Guy", "", "family_guy", false)),
+            
             new ChoicePair(
                 new Choice("Foreurs", "", "vd_foreurs", true),
                 new Choice("Huskies", "", "rn_huskies", false)),
 
+            new ChoicePair(
+                new Choice("Val-d'Or'", "", "vd", true),
+                new Choice("Rouyn-Noranda", "", "rn", false)),
+
+            new ChoicePair(
+                new Choice("Open Source (Logiciel libre)", "", "open_source", true),
+                new Choice("Closed Source (Logiciel propriétaire)", "", "closed_source", false)),
+
+            new ChoicePair(
+                new Choice("C#", "", "csharp", true),
+                new Choice("ActionScript", "", "actionscript", false)),
 
             new ChoicePair(
                 new Choice("Microsoft", "", "microsoft", true),
                 new Choice("Apple", "", "apple", false)),
 
-
             new ChoicePair(
-                new Choice("Super Mario Bros 3", "", "super_mario_bros", true),
+                new Choice("Super Mario Bros 3", "", "smb3", true),
                 new Choice("Fornite", "", "fortnite", false)),
-
 
             new ChoicePair(
                 new Choice("Sony", "", "sony", true),
                 new Choice("Nikon", "", "nikon", false)),
-
 
             new ChoicePair(
                 new Choice("Ableton Live", "", "ableton", true),
                 new Choice("FL Studio", "", "fl_studio", false)),
 
             new ChoicePair(
-                new Choice("Val-d'Or'", "", "vd", true),
-                new Choice("Rouyn-Noranda", "", "rn", false)),
-
-
-            new ChoicePair(
                 new Choice("Burger King", "", "burger_king", true),
                 new Choice("Mc Donald", "", "mc_donald", false)),
+            
+            new ChoicePair(
+                new Choice("Eminem", "", "eminem", true),
+                new Choice("Machine Gun Kelly", "", "mgk", false)),
+
+            new ChoicePair(
+                new Choice("Elon Musk", "", "musk", true),
+                new Choice("Jeff Bezos", "", "bezos", false)),
+
+            new ChoicePair(
+                new Choice("Justin Trudeau", "", "trudeau", true),
+                new Choice("Andrew Scheer", "", "andrew-scheer", false)),
 
             new ChoicePair(
                 new Choice("Samsung", "", "samsung", true),
                 new Choice("iPhone", "", "iphone", false)),
-
-
-            new ChoicePair(
-                new Choice("Open Source", "", "open_source", true),
-                new Choice("Closed Source", "", "closed_source", false)),
-
-            new ChoicePair(
-                new Choice("Lego", "", "lego", true),
-                new Choice("Mega Blocks", "", "mega_blocks", false)),
-
-            new ChoicePair(
-                new Choice("Rick and Morty", "", "rick_and_morty", true),
-                new Choice("Family Guy", "", "family_guy", false)),
-
-
-            new ChoicePair(
-                new Choice("Chien", "", "dog", true),
-                new Choice("Chat", "", "cat", false)),
 
             new ChoicePair(
                 new Choice("Reddit", "", "reddit", true),

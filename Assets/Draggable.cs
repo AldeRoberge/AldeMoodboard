@@ -87,6 +87,9 @@ public class Draggable : MonoBehaviour
                     targetPosition = new Vector3(raycastHit.point.x, raycastHit.point.y,
                         gameObject.transform.position.z);
                     gameObject.transform.position = targetPosition;
+                    
+       
+                    
 
                     if (onClick != null)
                     {

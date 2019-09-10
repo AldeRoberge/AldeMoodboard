@@ -19,7 +19,7 @@ public class Bird : MonoBehaviour
 
     private void Run()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     void Update()
