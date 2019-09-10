@@ -1,4 +1,10 @@
 # AldeMoodboard
-Interactive Moodboard for UQAT's course "Créativité et processus créatif"
+Interactive Moodboard for UQAT's course "Créativité et processus créatif" (in French)
 
-(Un jeux de mots entre ‘Maudit’ et ‘Moody’, de mauvaise humeur en anglais) 
+---------
+
+
+
+![Main screen](https://i.imgur.com/dyL2bxP.png "Écran principale")
+
+![Look around the scene](https://i.imgur.com/Ox7mdPI.png "Vue 'Jeux'")
