@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 119791174}
   - component: {fileID: 119791175}
+  - component: {fileID: 119791176}
   m_Layer: 0
   m_Name: GoodBad
   m_TagString: Untagged
@@ -270,6 +271,18 @@ MonoBehaviour:
   badLabel: {fileID: 1452513028}
   goodLabel: {fileID: 1288600999}
   Rain: {fileID: 283389995}
+--- !u!114 &119791176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119791173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2b76127478b8e4ca05a1daa48e7986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &146688923
 GameObject:
   m_ObjectHideFlags: 0
@@ -7725,14 +7738,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 257
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -7763,7 +7776,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -106.26248, w: 0}
   m_textInfo:
     textComponent: {fileID: 1288600999}
     characterCount: 0
@@ -7962,14 +7975,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_textAlignment: 257
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -8000,7 +8013,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -108.15094, w: 0}
   m_textInfo:
     textComponent: {fileID: 1452513028}
     characterCount: 0
@@ -8550,7 +8563,7 @@ GameObject:
   - component: {fileID: 1702973249}
   - component: {fileID: 1702973248}
   m_Layer: 0
-  m_Name: STATIC
+  m_Name: Stats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

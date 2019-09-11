@@ -11,6 +11,7 @@
         <e p="Countdown.cs" t="Include" />
         <e p="DeactivateWhenSoundEnds.cs" t="Include" />
         <e p="Draggable.cs" t="Include" />
+        <e p="ExitGame.cs" t="Include" />
         <e p="EZ Camera Shake" t="Include">
           <e p="Demo" t="Include">
             <e p="Sample Scripts" t="Include">
